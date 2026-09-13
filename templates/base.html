@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Gabriel's Hotel{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='2') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin.css', v='1') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='booking.css', v='1') }}">
+  <script src="{{ url_for('static', filename='app.js', v='2') }}" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ url_for('index') }}"><span>GH</span> Gabriel's Hotel</a>
+    <nav>
+      <a href="{{ url_for('index') }}">Soggiorna</a>
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('dashboard') }}">Le mie prenotazioni</a>
+        <a href="{{ url_for('profile') }}">Profilo</a>
+        {% if current_user.is_staff %}<a href="{{ url_for('admin') }}">Gestione</a>{% endif %}
+        <form method="post" action="{{ url_for('logout') }}" class="inline-form"><input type="hidden" name="csrf_token" value="{{ csrf_token() }}"><button class="link-button">Esci</button></form>
+      {% else %}
+        <a href="{{ url_for('login') }}">Accedi</a>
+        <a class="nav-cta" href="{{ url_for('register') }}">Inizia <span>↗</span></a>
+      {% endif %}
+    </nav>
+  </header>
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}<div class="flash-stack">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer><span>Gabriel's Hotel</span><span>Via delle Rose 18 · Italia</span><span>Quiet stays, beautifully kept.</span><small class="copyright">© 2026 Gabriel's Hotel. Tutti i diritti riservati.</small></footer>
+</body>
+</html>

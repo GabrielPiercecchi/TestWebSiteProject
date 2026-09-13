@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero reveal">
+  <div class="hero-copy">
+    <p class="eyebrow">Un indirizzo da ricordare</p>
+    <h1>Arriva leggero.<br><em>Resta più a lungo.</em></h1>
+    <p class="hero-text">Un piccolo hotel italiano pensato per chi cerca tempo, luce e la sensazione rara di essere già a casa.</p>
+    <a class="button button-dark" href="{{ url_for('book') }}">Trova la tua camera <span>↗</span></a>
+    <div class="hero-note"><span class="pulse-dot"></span><span>Disponibilità aggiornata oggi</span></div>
+  </div>
+  <div class="hero-image" role="img" aria-label="Interno luminoso di una camera d'hotel"></div>
+</section>
+<section class="intro-band reveal"><p class="eyebrow">Tre modi di stare bene</p><p class="large-copy">Camere silenziose, dettagli tattili e una colazione che non ha fretta.</p></section>
+<section class="rooms-section reveal">
+  <div class="section-heading"><div><p class="eyebrow">Le camere</p><h2>Scegli il tuo ritmo.</h2></div><a href="{{ url_for('book') }}" class="text-link">Vedi disponibilità <span>↗</span></a></div>
+  <div class="room-grid">{% for room in rooms %}<article class="room-card room-{{ loop.index }}"><div class="room-art"{% if room.image_url %} style="background-image:url('{{ room.image_url }}')"{% endif %}><span class="room-index">0{{ loop.index }}</span></div><div class="room-meta"><div><h3>{{ room.name }}</h3><p>{{ room.description }}</p><a class="room-link" href="{{ url_for('book') }}">Prenota questa camera <span>↗</span></a></div><strong>€ {{ room.price }} <small>/ notte</small></strong></div></article>{% endfor %}</div>
+</section>
+{% endblock %}
