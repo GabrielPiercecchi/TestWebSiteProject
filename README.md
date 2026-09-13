@@ -14,19 +14,24 @@ L'interfaccia punta a un'immagine premium: layout responsive, fotografie d'atmos
 
 ## Indice
 
-- [Panoramica](#panoramica)
-- [Funzionalità](#funzionalità)
-- [Tecnologie](#tecnologie)
-- [Struttura del progetto](#struttura-del-progetto)
-- [Prerequisiti](#prerequisiti)
-- [Configurazione](#configurazione)
-- [Avvio locale](#avvio-locale)
-- [Account demo](#account-demo)
-- [Stripe e pagamenti](#stripe-e-pagamenti)
-- [Email e recupero password](#email-e-recupero-password)
-- [Sicurezza](#sicurezza)
-- [Roadmap commerciale](#roadmap-commerciale)
-- [Comandi utili](#comandi-utili)
+- [Gabriel's Hotel](#gabriels-hotel)
+  - [Indice](#indice)
+  - [Panoramica](#panoramica)
+  - [Funzionalità](#funzionalità)
+    - [Area ospite](#area-ospite)
+    - [Area staff e admin](#area-staff-e-admin)
+    - [Profilo personale](#profilo-personale)
+  - [Tecnologie](#tecnologie)
+  - [Struttura del progetto](#struttura-del-progetto)
+  - [Prerequisiti](#prerequisiti)
+  - [Configurazione](#configurazione)
+  - [Avvio locale](#avvio-locale)
+  - [Account demo](#account-demo)
+  - [Stripe e pagamenti](#stripe-e-pagamenti)
+  - [Email e recupero password](#email-e-recupero-password)
+  - [Sicurezza](#sicurezza)
+  - [Roadmap commerciale](#roadmap-commerciale)
+  - [Comandi utili](#comandi-utili)
 
 ## Panoramica
 
@@ -258,7 +263,7 @@ Se `STRIPE_SECRET_KEY` e `STRIPE_PUBLISHABLE_KEY` sono vuote, l'app conferma le 
 
 Per testare Stripe Checkout:
 
-1. Crea o usa un account Stripe.
+1. Crea o usa un account [Stripe](https://stripe.com/).
 2. Recupera le chiavi di test.
 3. Inserisci nel file `.env` una chiave `sk_test_...` e la relativa publishable key.
 4. Riavvia i container.
