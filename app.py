@@ -350,9 +350,6 @@ def create_app():
     @login_required
     @limiter.limit("20 per minute")
     def cancel_booking(booking_id):
-        if not current_user.is_admin:
-            flash("Solo l'amministratore può annullare prenotazioni.", "error")
-            return redirect(url_for("dashboard"))
         booking = db.session.get(Booking, booking_id)
         if not booking or (booking.user_id != current_user.id and not current_user.is_admin):
             flash("Prenotazione non trovata.", "error")

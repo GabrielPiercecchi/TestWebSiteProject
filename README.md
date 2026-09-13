@@ -70,7 +70,7 @@ Dashboard personale
 - Pagamento con Stripe Checkout in test mode oppure conferma demo locale.
 - Controllo della capienza della camera.
 - Blocco delle prenotazioni sovrapposte.
-- Dashboard con storico, stato delle prenotazioni e annullamento.
+- Dashboard con storico, stato delle prenotazioni e annullamento delle proprie prenotazioni.
 - Email di recupero password tramite SMTP/Brevo oppure link disponibile nei log in sviluppo.
 
 ### Area staff e admin
@@ -78,7 +78,7 @@ Dashboard personale
 - Ruoli separati: `admin`, `staff` e ospite.
 - L'admin può creare, disabilitare, riattivare o cancellare utenze staff.
 - Lo staff può creare e aggiornare camere, senza poter annullare prenotazioni.
-- L'annullamento delle prenotazioni è riservato all'admin.
+- L'admin può annullare qualsiasi prenotazione; ogni ospite può annullare soltanto le proprie.
 - Elenco globale delle prenotazioni con ospite, camera, date e stato.
 - Upload immagini camere con validazione del tipo reale di file.
 
